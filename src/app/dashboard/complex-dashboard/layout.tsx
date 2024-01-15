@@ -5,10 +5,12 @@ interface children {
   users: React.ReactNode
   revenue: React.ReactNode
   notifications: React.ReactNode
+  login:  React.ReactNode
 }
 
-const DashboardLayout = ({children, users, revenue, notifications}: children) => {
-  return (
+const DashboardLayout = ({children, users, revenue, notifications, login}: children) => {
+  const isLoggedIn = false
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
 
@@ -20,7 +22,8 @@ const DashboardLayout = ({children, users, revenue, notifications}: children) =>
         <div style={{display: "flex", flex: 1}}>{notifications}</div>
       </div>
     </div>
-  )
+  ) :
+  (<>{login}</>)
 }
 
 export default DashboardLayout
